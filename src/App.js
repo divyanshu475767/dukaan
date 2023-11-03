@@ -3,6 +3,7 @@ import ProductList from "./components/ProductList";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import { useState } from "react";
+import ContextProvier from "./store/ContextProvier";
 
 
 
@@ -34,12 +35,12 @@ const openHandler = ()=>{
 
   return (
 
-    <>
+    <ContextProvier>
     <Header onOpen={openHandler}/>
     {isCartShown && <Cart onClose={closeHandler}/>}
     <ProductList/>
 
-      </>
+    </ContextProvier>
   );
 }
 

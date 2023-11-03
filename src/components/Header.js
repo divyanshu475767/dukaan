@@ -1,9 +1,14 @@
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Button } from 'react-bootstrap';
 import './Header.css';
+import cartContext from '../store/cart-context';
+
+
 function Header(props) {
+    const ctx = useContext(cartContext);
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -16,7 +21,7 @@ function Header(props) {
           </Nav>
          <Button className='item-count' variant="outline-success" onClick={props.onOpen}>
             <span>cart </span>
-            <span >(0)</span>
+            <span >({ctx.cartItems.length})</span>
          </Button>
         </Navbar.Collapse>
       </Container>

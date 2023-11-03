@@ -5,6 +5,7 @@ import './ProductList.css';
 const productsArr = [
 
     {
+    id:1,
     
     title: 'Colors',
     
@@ -14,7 +15,8 @@ const productsArr = [
     
     },
     
-    {
+    { 
+      id:2,
     
     title: 'Black and white Colors',
     
@@ -25,7 +27,7 @@ const productsArr = [
     },
     
     {
-    
+      id:3,
     title: 'Yellow and Black Colors',
     
     price: 70,
@@ -35,7 +37,7 @@ const productsArr = [
     },
     
     {
-    
+      id:4,
     title: 'Blue Color',
     
     price: 100,
@@ -45,7 +47,7 @@ const productsArr = [
     }
     ,
     {
-    
+      id:5,
         title: 'Colors',
         
         price: 100,
@@ -55,7 +57,7 @@ const productsArr = [
         },
         
         {
-        
+          id:6,
         title: 'Black and white Colors',
         
         price: 50,
@@ -65,7 +67,7 @@ const productsArr = [
         },
         
         {
-        
+          id:7,
         title: 'Yellow and Black Colors',
         
         price: 70,
@@ -75,6 +77,7 @@ const productsArr = [
         },
         
         {
+          id:8,
         
         title: 'Blue Color',
         
