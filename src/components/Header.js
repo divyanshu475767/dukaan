@@ -11,7 +11,7 @@ function Header(props) {
   const ctx = useContext(cartContext);
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-      <Container>
+      <Container className="navv">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -20,6 +20,8 @@ function Header(props) {
            to='/' className={isActive => "nav-link" + (!isActive ? ' unselected' : '')} exact>Home</NavLink>
 
           <NavLink  ClassName = 'active-link' className={isActive => "nav-link" + (!isActive ? ' unselected' : '')} to='/about'>About us</NavLink>
+
+          <NavLink  ClassName = 'active-link' className={isActive => "nav-link" + (!isActive ? ' unselected' : '')} to='/store'>Store</NavLink>
 
           </Nav>
           <Button

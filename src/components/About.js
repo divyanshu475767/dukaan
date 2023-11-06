@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import { FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Footer from './Footer';
 
 
 const About = () => {
@@ -20,32 +20,8 @@ Lorem ipsum dolor, sit amet consectetur rebates. The distinction, that arise fro
         </p>
       </div>
     </div>
-    <div className="contact-info">
-      <h2>Contact Us</h2>
-      <ul>
-        <li>
-          <a href="https://www.facebook.com" >
-            <FaFacebook/>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.twitter.com" >
-            <FaTwitter/>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com" >
-            <FaInstagram/>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://www.linkedin.com" >
-            <FaLinkedin/>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Footer/>
+    
   </div>
   )
 }

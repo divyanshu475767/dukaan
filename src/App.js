@@ -6,6 +6,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Store from "./pages/Store";
 
 function App() {
   const [isCartShown, setIsCartShown] = useState(false);
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/store" element={<Store/>} />
         </Routes>
       </Router>
     </ContextProvier>
