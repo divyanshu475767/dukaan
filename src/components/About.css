@@ -1,0 +1,86 @@
+.about-page {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  /* Heading Styles */
+  .about-heading {
+    font-size: 2.5rem;
+    color: #d99494;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background-color: #321c1c;
+    height: 200px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+  
+  /* About Content Section */
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+  }
+  
+  .about-text {
+    flex: 1;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Contact Info Section */
+  .contact-info {
+    margin-top: 40px;
+  }
+  
+  .contact-info h2 {
+    font-size: 2rem;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contact-info li {
+    margin: 0 15px;
+  }
+  
+  .contact-info a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+  
+  .contact-info a:hover {
+    color: #0077b5; /* Change to your brand color */
+  }
+  
+  /* FontAwesome Icons */
+  .fab {
+    font-size: 2rem;
+  }
+  
+  .image{
+    height: 300px;
+    width: 300px;
+  }

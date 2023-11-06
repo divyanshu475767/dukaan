@@ -7,7 +7,6 @@ const ContextProvier = (props) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const contextValue = {
-    
     cartItems: cartItems,
     setCartItems: setCartItems,
     totalPrice: totalPrice,

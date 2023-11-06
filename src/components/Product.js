@@ -7,8 +7,6 @@ const Product = (props) => {
   const ctx = useContext(cartContext);
 
   const addToCartHandler = () => {
-   
-
     ctx.setCartItems((prev) => {
       const Index = prev.findIndex((item) => item.id === props.details.id);
       let updatedItemArray;

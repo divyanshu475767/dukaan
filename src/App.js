@@ -1,45 +1,33 @@
-
-import ProductList from "./components/ProductList";
+import React from "react";
+import ContextProvier from "./store/ContextProvier";
+import Home from "./pages/Home";
+import AboutPage from "./pages/About";
+import { useState } from "react";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
-import { useState } from "react";
-import ContextProvier from "./store/ContextProvier";
-
-
-
-
-
-
-
-
-
-
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  const [isCartShown, setIsCartShown] = useState(false);
 
-  const [isCartShown , setIsCartShown] = useState(true);
-
- 
-
-
-  const closeHandler = ()=>{
+  const closeHandler = () => {
     setIsCartShown(false);
-}
+  };
 
-const openHandler = ()=>{
-  setIsCartShown(true);
-}
-
-
+  const openHandler = () => {
+    setIsCartShown(true);
+  };
 
   return (
-
     <ContextProvier>
-    <Header onOpen={openHandler}/>
-    {isCartShown && <Cart onClose={closeHandler}/>}
-    <ProductList/>
-
+      <Router>
+        <Header onOpen={openHandler} />
+        {isCartShown && <Cart onClose={closeHandler} />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Router>
     </ContextProvier>
   );
 }
