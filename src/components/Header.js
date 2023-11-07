@@ -23,6 +23,8 @@ function Header(props) {
 
           <NavLink  ClassName = 'active-link' className={isActive => "nav-link" + (!isActive ? ' unselected' : '')} to='/store'>Store</NavLink>
 
+          <NavLink  ClassName = 'active-link' className={isActive => "nav-link" + (!isActive ? ' unselected' : '')} to='/contact'>Contact Us</NavLink>
+
           </Nav>
           <Button
             className="item-count"

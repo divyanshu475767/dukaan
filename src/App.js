@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Cart from "./components/Cart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Store from "./pages/Store";
+import ContactUsForm from "./pages/Contact";
 
 function App() {
   const [isCartShown, setIsCartShown] = useState(false);
@@ -28,6 +29,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/store" element={<Store/>} />
+          <Route path="/contact" element={<ContactUsForm/>} />
+
         </Routes>
       </Router>
     </ContextProvier>
