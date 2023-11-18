@@ -36,33 +36,50 @@ function ContactUsForm() {
       <h2>Contact Us</h2>
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
+          <br/>
           <label>Name:</label>
+          <br/>
+
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
           />
+          <br/>
+
         </div>
 
         <div className="form-group">
+        <br/>
+
           <label>Email:</label>
+          <br/>
+
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
           />
+          <br/>
+
         </div>
+        <br/>
 
         <div className="form-group">
+        <br/>
+
           <label>Phone Number:</label>
+          <br/>
+
           <input
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
           />
+
         </div>
 
         <button type="submit">Submit</button>

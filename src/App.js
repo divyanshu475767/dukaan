@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import ContextProvier from "./store/ContextProvier";
 import Home from "./pages/Home";
 import AboutPage from "./pages/About";
 import { useState } from "react";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route,  Routes } from "react-router-dom";
 import Store from "./pages/Store";
 import ContactUsForm from "./pages/Contact";
+import Login from "./pages/Login";
+import authContext from "./store/auth-context";
+import { Navigate } from "react-router-dom";
+
 
 function App() {
+  const authCtx = useContext(authContext);
   const [isCartShown, setIsCartShown] = useState(false);
 
   const closeHandler = () => {
@@ -21,19 +26,31 @@ function App() {
   };
 
   return (
+    
     <ContextProvier>
       <Router>
         <Header onOpen={openHandler} />
         {isCartShown && <Cart onClose={closeHandler} />}
         <Routes>
-          <Route path="/" element={<Home />} />
+
+      
+{authCtx.isLoggedIn && <>
+  <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/store" element={<Store/>} />
           <Route path="/contact" element={<ContactUsForm/>} />
+</>}
 
+
+
+
+         <Route path="/login" element={<Login/>} /> 
+
+         <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
       </Router>
     </ContextProvier>
+    
   );
 }
 
