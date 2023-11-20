@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./CartItem.css";
 import { Button } from "react-bootstrap";
 import cartContext from "../store/cart-context";
+import axios from 'axios';
 
 const CartItem = ({ id, name, price, quantity }) => {
   const ctx = useContext(cartContext);
@@ -9,7 +10,28 @@ const CartItem = ({ id, name, price, quantity }) => {
   const removeFromCart = () => {
     ctx.setCartItems((prev) => {
       const updatedItemArray = prev.filter((item) => item.id !== id);
-      return updatedItemArray;
+
+      axios.post('http://localhost:3000/createCart',{
+      
+      cart:updatedItemArray,
+  
+  }
+  ,
+  {
+    headers:{
+      Authorization:localStorage.getItem('token'),
+    }
+  }
+  )
+  .then(response=>{
+    console.log(localStorage.getItem('token'));
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+
+
+  return updatedItemArray;
     });
 
     ctx.setTotalPrice((prev) => {

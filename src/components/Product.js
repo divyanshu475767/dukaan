@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import cartContext from "../store/cart-context";
+import axios from "axios";
 
 const Product = (props) => {
   const ctx = useContext(cartContext);
 
   const addToCartHandler = () => {
+    let updatedItemArray;
+    let newPrice ;
+
     ctx.setCartItems((prev) => {
       const Index = prev.findIndex((item) => item.id === props.details.id);
-      let updatedItemArray;
+      
 
       if (Index >= 0) {
         const itemQuantity = prev[Index].quantity;
@@ -32,14 +36,41 @@ const Product = (props) => {
           },
         ];
       }
+      
+  axios.post('http://localhost:3000/createCart',{
+      
+      cart:updatedItemArray,
+  
+  }
+  ,
+  {
+    headers:{
+      Authorization:localStorage.getItem('token'),
+    }
+  }
+  )
+  .then(response=>{
+    console.log(localStorage.getItem('token'));
+  })
+  .catch(err=>{
+    console.log(err);
+  })
+  
+  
+  console.log(updatedItemArray);
+  
       return updatedItemArray;
-    });
+  });
 
     ctx.setTotalPrice((prev) => {
-      let newPrice = props.details.price + prev;
+      newPrice = props.details.price + prev;
       return newPrice;
     });
+
+   
+
   };
+
 
   return (
     <Card style={{ width: "17rem" }} className="mt-2 ">

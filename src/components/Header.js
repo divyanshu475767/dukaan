@@ -15,6 +15,8 @@ function Header(props) {
   const navigate = useNavigate();
 
 
+
+
   const logoutHandler = ()=>{
     authCtx.logout();
     navigate('/login')
@@ -48,7 +50,7 @@ function Header(props) {
   {
     !authCtx.isLoggedIn && <NavLink  ClassName = 'active-link' className={isActive => "nav-link" + (!isActive ? ' unselected' : '')} to='/login'>Login</NavLink>
   }
-
+               
           
       
 

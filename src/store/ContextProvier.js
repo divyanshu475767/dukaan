@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import cartContext from "./cart-context";
+
 
 const ContextProvier = (props) => {
   const [cartItems, setCartItems] = useState([]);
 
   const [totalPrice, setTotalPrice] = useState(0);
+
+ 
 
   const contextValue = {
     cartItems: cartItems,

@@ -1,22 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CartItem from "./CartItem";
 import "./Cart.css";
 import cartContext from "../store/cart-context";
+import axios from "axios";
 
 const Cart = (props) => {
   const ctx = useContext(cartContext);
 
-  if (ctx.cartItems.length > 0) {
-    var CartItems = ctx.cartItems.map((item) => (
-      <CartItem
-        key={item.id}
-        id={item.id}
-        name={item.title}
-        price={item.price}
-        quantity={item.quantity}
-      />
-    ));
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/getCart', {
+          headers: { Authorization: localStorage.getItem('token') },
+        });
+        console.log(response.data);
+        
+        let totalPrice = 0;
+
+        for (let i = 0; i < response.data.length; i++) {
+          totalPrice += response.data[i].price * response.data[i].quantity ;
+        }
+        
+        
+        ctx.setCartItems(response.data); // Update cartItems state with fetched data
+        ctx.setTotalPrice(totalPrice);
+
+      } catch (error) {
+        console.error('Error fetching cart:', error);
+      }
+    };
+
+    fetchData();
+
+  }, []);
 
   return (
     <>
@@ -27,7 +43,15 @@ const Cart = (props) => {
             X
           </button>
         </div>
-        {CartItems}
+        {ctx.cartItems.map((item) => (
+          <CartItem
+            key={item.id}
+            id={item.id}
+            name={item.title}
+            price={item.price}
+            quantity={item.quantity}
+          />
+        ))}
         <p>Total Price : $ {ctx.totalPrice}</p>
       </div>
     </>
