@@ -11,7 +11,7 @@ import ContactUsForm from "./pages/Contact";
 import Login from "./pages/Login";
 import authContext from "./store/auth-context";
 import { Navigate } from "react-router-dom";
-import ProductDetails from "./components/ProductDetail";
+import ProductSingle from "./components/ProductSingle";
 
 
 
@@ -38,6 +38,7 @@ function App() {
             <>
               <Route path="/" element={<Home />} />
               <Route path="/store" element={<Store />} />
+              <Route path="/productdetail/:productId" element={<ProductSingle/>}/>
             </>
           )}
 
@@ -45,7 +46,7 @@ function App() {
           <Route path="/contact" element={<ContactUsForm />} />
 
           <Route path="/login" element={<Login />} />
-
+           
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
       </Router>

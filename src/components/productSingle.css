@@ -1,0 +1,18 @@
+.main-one{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+}
+.images{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+
+.ime{
+    height: 200px;
+    width: 20p0x;
+}
